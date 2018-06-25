@@ -1,7 +1,7 @@
 /*
  * Create a list that holds all of your cards
  */
-
+let myCards = ["A", "A", "B", "B"];
 
 /*
  * Display the cards on the page
@@ -9,6 +9,7 @@
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
+myCards = shuffle(myCards);
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -25,10 +26,26 @@ function shuffle(array) {
     return array;
 }
 
+tryCount = 0;
+
+while (myCards.length > 0) {
+
+  let firstGuess = prompt("Pick one");
+  let secondGuess = prompt("Pick next");
+
+  if (firstGuess === secondGuess) {
+    myCards = myCards.filter(card => card != firstGuess);
+  }
+
+  tryCount += 1;
+
+}
+
+console.log(`You win at ${tryCount} try.`);
+
 /*
  Set up the event listener for a card. If a card is clicked:
 */
-
 
 /*
  Display the card's symbol (put this functionality in another function that you call from this one)
