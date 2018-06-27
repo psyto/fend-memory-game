@@ -1,7 +1,24 @@
 /*
  * Create a list that holds all of your cards
  */
-let myCards = ["A", "A", "B", "B"];
+let cards = [
+"fa fa-diamond",
+"fa fa-paper-plane-o",
+"fa fa-anchor",
+"fa fa-bolt",
+"fa fa-cube",
+"fa fa-anchor",
+"fa fa-leaf",
+"fa fa-bicycle",
+"fa fa-diamond",
+"fa fa-bomb",
+"fa fa-leaf",
+"fa fa-bomb",
+"fa fa-bolt",
+"fa fa-bicycle",
+"fa fa-paper-plane-o",
+"fa fa-cube"
+];
 
 /*
  * Display the cards on the page
@@ -9,7 +26,11 @@ let myCards = ["A", "A", "B", "B"];
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
-myCards = shuffle(myCards);
+cards = shuffle(cards);
+
+for (card of cards) {
+  card.
+}
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -28,6 +49,7 @@ function shuffle(array) {
 
 tryCount = 0;
 
+/*
 while (myCards.length > 0) {
 
   let firstGuess = prompt("Pick one");
@@ -40,12 +62,17 @@ while (myCards.length > 0) {
   tryCount += 1;
 
 }
+*/
 
 console.log(`You win at ${tryCount} try.`);
 
 /*
  Set up the event listener for a card. If a card is clicked:
 */
+const deck = document.querySelector('.deck');
+deck.addEventListener('click', function() {
+  console.log('Hello');
+})
 
 /*
  Display the card's symbol (put this functionality in another function that you call from this one)
