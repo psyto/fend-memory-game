@@ -1,4 +1,13 @@
 /*
+getElementById
+getElementsByClassName
+getElementsByTagName
+querySelector
+querySelectorAll
+
+*/
+
+/*
  * Create a list that holds all of your cards
  */
 let cards = [
