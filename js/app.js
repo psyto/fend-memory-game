@@ -1,9 +1,22 @@
 /*
-getElementById
-getElementsByClassName
-getElementsByTagName
-querySelector
-querySelectorAll
+getElementById()
+getElementsByClassName()
+getElementsByTagName()
+querySelector()
+querySelectorAll()
+
+createElement()
+appendChild()
+createTextNode()
+insertAdjacentHMTL()
+
+removeChild()
+remove()
+
+firstElementChild()
+parentElement()
+
+setAttribute()
 
 */
 
