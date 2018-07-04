@@ -100,10 +100,13 @@ console.log(`You win at ${tryCount} try.`);
 /*
  Set up the event listener for a card. If a card is clicked:
 */
-//const deck = document.querySelector('.deck');
-//deck.addEventListener('click', function() {
-//  console.log('Hello');
-//})
+deck.addEventListener('click', event => {
+  const clickTarget = event.target;
+  if (clickTarget.classList.contains('card')) {
+    clickTarget.classList.toggle('open');
+    clickTarget.classList.toggle('show');
+  }
+})
 
 /*
  Display the card's symbol (put this functionality in another function that you call from this one)
