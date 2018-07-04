@@ -23,7 +23,7 @@ setAttribute()
 /*
  * Create a list that holds all of your cards
  */
-let cards = [
+let holds = [
 "fa fa-diamond",
 "fa fa-paper-plane-o",
 "fa fa-anchor",
@@ -48,10 +48,19 @@ let cards = [
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
-cards = shuffle(cards);
+holds = shuffle(holds);
 
-for (card of cards) {
-  card.
+let deck = document.querySelector('.deck');
+
+for (hold of holds) {
+  let listItem = document.createElement('li');
+  listItem.setAttribute('class', 'card');
+
+  let item = document.createElement('i');
+  item.setAttribute('class', hold);
+
+  listItem.appendChild(item);
+  deck.appendChild(listItem);
 }
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -91,10 +100,10 @@ console.log(`You win at ${tryCount} try.`);
 /*
  Set up the event listener for a card. If a card is clicked:
 */
-const deck = document.querySelector('.deck');
-deck.addEventListener('click', function() {
-  console.log('Hello');
-})
+//const deck = document.querySelector('.deck');
+//deck.addEventListener('click', function() {
+//  console.log('Hello');
+//})
 
 /*
  Display the card's symbol (put this functionality in another function that you call from this one)
