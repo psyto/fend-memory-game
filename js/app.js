@@ -102,11 +102,26 @@ console.log(`You win at ${tryCount} try.`);
 */
 deck.addEventListener('click', event => {
   const clickTarget = event.target;
-  if (clickTarget.classList.contains('card')) {
-    clickTarget.classList.toggle('open');
-    clickTarget.classList.toggle('show');
+  if (clickTarget.classList.contains('card') && toggleCards.length < 2) {
+    toggleCard(clickTarget);
+    addToggleCard(clickTarget);
+    if (toggleCards.length === 2) {
+      console.log('2 cards!');
+    }
   }
 })
+
+function toggleCard(clickTarget) {
+  clickTarget.classList.toggle('open');
+  clickTarget.classList.toggle('show');
+}
+
+let toggleCards = [];
+
+function addToggleCard(clickTarget) {
+  toggleCards.push(clickTarget);
+  console.log(toggleCards);
+}
 
 /*
  Display the card's symbol (put this functionality in another function that you call from this one)
