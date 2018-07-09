@@ -80,21 +80,6 @@ function shuffle(array) {
 
 tryCount = 0;
 
-/*
-while (myCards.length > 0) {
-
-  let firstGuess = prompt("Pick one");
-  let secondGuess = prompt("Pick next");
-
-  if (firstGuess === secondGuess) {
-    myCards = myCards.filter(card => card != firstGuess);
-  }
-
-  tryCount += 1;
-
-}
-*/
-
 console.log(`You win at ${tryCount} try.`);
 
 /*
@@ -102,35 +87,38 @@ console.log(`You win at ${tryCount} try.`);
 */
 deck.addEventListener('click', event => {
   const clickTarget = event.target;
-  if (clickTarget.classList.contains('card') && toggleCards.length < 2) {
+  if (isClickValid(clickTarget)) {
     toggleCard(clickTarget);
-    addToggleCard(clickTarget);
-    if (toggleCards.length === 2) {
-      console.log('2 cards!');
+    pushSelectedCard(clickTarget);
+    if (selectedCards.length === 2) {
+      checkMatch(clickTarget);
     }
   }
 })
 
-function toggleCard(clickTarget) {
-  clickTarget.classList.toggle('open');
-  clickTarget.classList.toggle('show');
-}
-
-let toggleCards = [];
-
-function addToggleCard(clickTarget) {
-  toggleCards.push(clickTarget);
-  console.log(toggleCards);
+function isClickValid(clickTarget) {
+  return (
+    clickTarget.classList.contains('card') && !clickTarget.classList.contains('match') && selectedCards.length < 2 && !selectedCards.includes(clickTarget)
+  );
 }
 
 /*
  Display the card's symbol (put this functionality in another function that you call from this one)
 */
-
+function toggleCard(clickTarget) {
+  clickTarget.classList.toggle('open');
+  clickTarget.classList.toggle('show');
+}
 
 /*
  Add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
 */
+let selectedCards = [];
+
+function pushSelectedCard(clickTarget) {
+  selectedCards.push(clickTarget);
+  console.log(selectedCards);
+}
 
 /*
 Start by building a very simple grid of cards.
@@ -157,6 +145,22 @@ Work on the matching logic. How does your game "know" if a player guesses correc
 
  Increment the move counter and display it on the page (put this functionality in another function that you call from this one)
 */
+
+function checkMatch() {
+  if (
+    selectedCards[0].firstElementChild.className === selectedCards[1].firstElementChild.className
+  ) {
+    selectedCards[0].classList.toggle('match');
+    selectedCards[1].classList.toggle('match');
+    selectedCards = [];
+  } else {
+    setTimeout(() => {
+      toggleCard(selectedCards[0]);
+      toggleCard(selectedCards[1]);
+      selectedCards = [];
+    }, 1000);
+  }
+}
 
 /*
 Work on the winning condition.
