@@ -78,9 +78,22 @@ function shuffle(array) {
     return array;
 }
 
-tryCount = 0;
+let tryCount = 0;
+
+const moves = document.querySelector('.moves');
+moves.innerHTML = tryCount;
+
+function incrementCount() {
+  tryCount++;
+  moves.innerHTML = tryCount;
+}
 
 console.log(`You win at ${tryCount} try.`);
+
+const restart = document.querySelector('.restart');
+restart.addEventListener('click', event => {
+
+})
 
 /*
  Set up the event listener for a card. If a card is clicked:
@@ -92,6 +105,7 @@ deck.addEventListener('click', event => {
     pushSelectedCard(clickTarget);
     if (selectedCards.length === 2) {
       checkMatch(clickTarget);
+      incrementCount();
     }
   }
 })
